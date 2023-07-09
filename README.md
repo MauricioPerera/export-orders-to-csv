@@ -19,20 +19,68 @@ Este plugin obtiene información de las siguientes tablas de la base de datos de
 
 ## Estructura del archivo CSV generado
 
-El archivo CSV generado incluye la siguiente información para cada pedido:
+El plugin genera cuatro archivos CSV distintos, cada uno conteniendo información relacionada con los pedidos:
 
-- ID del pedido
-- Fecha del pedido
-- Estado del pedido
-- Total del pedido
-- Método de pago
-- Nombre del cliente
-- Email del cliente
-- Dirección de facturación
-- Dirección de envío
-- Productos comprados (ID del producto, nombre y cantidad)
+### orders.csv
 
-Los detalles anteriores se incluyen en cada fila del archivo CSV, donde cada fila representa un pedido.
+Este archivo contendrá información sobre los pedidos en sí. Las columnas de este archivo son:
+
+- ID
+- post_author
+- post_date
+- post_date_gmt
+- post_content
+- post_title
+- post_excerpt
+- post_status
+- comment_status
+- ping_status
+- post_password
+- post_name
+- to_ping
+- pinged
+- post_modified
+- post_modified_gmt
+- post_content_filtered
+- post_parent
+- guid
+- menu_order
+- post_type
+- post_mime_type
+- comment_count
+- meta_id
+- post_id
+- meta_key
+- meta_value
+
+### customer_data.csv
+
+Este archivo contendrá información específica del cliente para cada pedido. Las columnas de este archivo son:
+
+- meta_id
+- post_id
+- meta_key
+- meta_value
+
+### order_items.csv
+
+Este archivo contendrá información sobre los elementos individuales de cada pedido. Las columnas de este archivo son:
+
+- order_item_id
+- order_item_name
+- order_item_type
+- order_id
+
+### order_meta.csv
+
+Este archivo contendrá los metadatos asociados a cada pedido. Estos metadatos pueden incluir información como la dirección de envío y facturación, el método de pago, y más. Las columnas de este archivo son:
+
+- meta_id
+- post_id
+- meta_key
+- meta_value
+
+Para cada mes en el rango de fechas seleccionado, se generará un archivo separado para cada uno de los cuatro tipos de archivos mencionados anteriormente.
 
 ## Cómo usar
 
