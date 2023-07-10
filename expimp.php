@@ -3,7 +3,7 @@
  * Plugin Name: Export Orders to CSV
  * Plugin URI: https://rckflr.party/
  * Description: This WordPress plugin is designed to export WooCommerce orders into a CSV file. It provides a convenient interface in the WordPress dashboard where users can select a date range for the orders to be exported. Additionally, it allows users to download or delete the generated CSV files.
- * Version: 1.0
+ * Version: 1.1
  * Author: Mauricio Perera
  * Author URI: https://www.linkedin.com/in/mauricioperera/
  * Donate link: https://www.buymeacoffee.com/rckflr

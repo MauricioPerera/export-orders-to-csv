@@ -48,11 +48,19 @@ function eo_export_orders_to_csv($start_date, $end_date) {
             ],
             'order_items' => [
                 'query' => $wpdb->prepare("
-                    SELECT {$wpdb->prefix}woocommerce_order_items.* 
-                    FROM {$wpdb->prefix}woocommerce_order_items 
-                    INNER JOIN {$wpdb->prefix}posts ON {$wpdb->prefix}posts.ID = {$wpdb->prefix}woocommerce_order_items.order_id
+                    SELECT 
+                        order_items.*,
+                        order_itemmeta.meta_key,
+                        order_itemmeta.meta_value 
+                    FROM {$wpdb->prefix}woocommerce_order_items as order_items
+                    JOIN
+                        {$wpdb->prefix}woocommerce_order_itemmeta as order_itemmeta
+                    ON
+                        order_items.order_item_id = order_itemmeta.order_item_id
+                    INNER JOIN {$wpdb->prefix}posts ON {$wpdb->prefix}posts.ID = order_items.order_id
                     WHERE {$wpdb->prefix}posts.post_type = 'shop_order' 
                     AND {$wpdb->prefix}posts.post_date BETWEEN %s AND %s
+                    AND order_itemmeta.meta_key IN ('_line_total', '_line_subtotal')
                 ", $month_start, $month_end),
                 'file' => fopen($bkp_dir . '/order_items_' . $dates . '.csv', 'w'),
             ],
