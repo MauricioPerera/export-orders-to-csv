@@ -15,6 +15,11 @@ function eo_export_orders_page() {
     ?>
 <div class="wrap">
     <h1>Export Orders</h1>
+    <a href="https://www.buymeacoffee.com/rckflr" target="_blank"><img
+            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+            style="height: 60px !important;width: 217px !important;"></a>
+    <p>Si te gusta este plugin y quieres apoyar mi trabajo, por favor considera comprarme un café. ¡Gracias!</p>
+
     <form method="post" style="margin-bottom: 20px;">
         <label for="start_date">Start Date:</label>
         <input type="date" id="start_date" name="start_date" class="regular-text">

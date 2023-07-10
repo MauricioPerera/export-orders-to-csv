@@ -6,6 +6,7 @@
  * Version: 1.0
  * Author: Mauricio Perera
  * Author URI: https://www.linkedin.com/in/mauricioperera/
+ * Donate link: https://www.buymeacoffee.com/rckflr
  */
 
 // Include the necessary files
@@ -14,3 +15,11 @@ require_once plugin_dir_path(__FILE__) . 'inc/export-csv.php';
 require_once plugin_dir_path(__FILE__) . 'inc/delete-orders.php';
 require_once plugin_dir_path(__FILE__) . 'inc/list-files.php';
 require_once plugin_dir_path(__FILE__) . 'inc/download-files.php';
+
+function add_action_links ( $links ) {
+    $mylinks = array(
+        '<a href="https://www.buymeacoffee.com/rckflr" target="_blank">Buy Me A Coffee</a>',
+    );
+    return array_merge( $links, $mylinks );
+}
+add_filter( 'plugin_action_links_export-orders-to-csv/export-orders-to-csv.php', 'add_action_links' );
